@@ -1,17 +1,51 @@
 package com.example.jhanarly.adaptersandroid;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    Button mButtonListView, mButtonSpinner, mButtonGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mButtonListView = (Button) findViewById(R.id.buttonListView);
+        mButtonSpinner = (Button) findViewById(R.id.buttonSpinner);
+        mButtonGridView = (Button) findViewById(R.id.buttonGridView);
+
+        mButtonListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mButtonSpinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SpinnerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mButtonGridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GridviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
